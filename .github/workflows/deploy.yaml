@@ -1,0 +1,14 @@
+name: Build an Test
+
+on:
+  workflow_call:
+
+jobs:
+  build:
+    uses: GuhTiagoSilva/github-actions-playground/.github/workflows/global-build.yaml@main
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Deploy
+        run: mvn publish

@@ -1,4 +1,4 @@
-name: Build and Test Java Spring Boot Application
+name: Build and Test Java Application
 
 on:
   push:
@@ -8,15 +8,4 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK 21
-        uses: actions/setup-java@v3
-        with:
-          java-version: '21'
-          distribution: 'temurin'
-          cache: maven
-
-      - name: Build and Test with Maven
-        run: mvn clean verify
+    uses: GuhTiagoSilva/github-actions-playground/.github/workflows/global-build.yaml@main
