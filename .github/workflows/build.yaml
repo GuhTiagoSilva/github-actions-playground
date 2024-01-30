@@ -3,7 +3,7 @@ name: Build and Test Java Application
 on:
   push:
     branches: [ "main" ]
-    paths: [ '**.java', '.github/workflows/build.yaml', '.github/workflows/global-build.yaml', 'pom.xml' ]
+    paths: [ '**.java', '.github/workflows/build.yaml', '.github/workflows/global-build.yaml','security.yaml', 'pom.xml' ]
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
