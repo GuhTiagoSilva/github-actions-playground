@@ -11,3 +11,6 @@ on:
 jobs:
   build:
     uses: GuhTiagoSilva/github-actions-playground/.github/workflows/global-build.yaml@main
+  security:
+    uses: GuhTiagoSilva/github-actions-playground/.github/workflows/security.yaml@main
+    needs: [ build ]
