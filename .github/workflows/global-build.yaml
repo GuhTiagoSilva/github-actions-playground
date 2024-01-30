@@ -26,3 +26,6 @@ jobs:
         with:
           name: jacoco-report
           path: target/site/jacoco/
+
+    needs:
+      - build
