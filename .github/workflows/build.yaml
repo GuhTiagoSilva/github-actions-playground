@@ -7,6 +7,12 @@ on:
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to run deploy'
+        type: environment
+        required: true
+        default: 'dev'
 
 jobs:
   build:
