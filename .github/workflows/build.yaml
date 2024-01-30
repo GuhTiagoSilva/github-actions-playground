@@ -3,8 +3,10 @@ name: Build and Test Java Application
 on:
   push:
     branches: [ "main" ]
+    paths: [ '**.java', '.github/workflows/build.yml', 'pom.xml' ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   build:
