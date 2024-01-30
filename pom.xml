@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.playground</groupId>
 	<artifactId>github-actions-playground</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>github-actions-playground</name>
 	<description>Github Actions Playground</description>
 	<properties>
