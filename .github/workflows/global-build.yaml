@@ -38,6 +38,8 @@ jobs:
     needs: [ build ]
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+        timeout-minutes: 5
       - name: Run OWASP dependency vulnerability check
         run: mvn -B verify --file pom.xml -DskipTests
         timeout-minutes: 5
