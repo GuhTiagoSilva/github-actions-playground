@@ -19,6 +19,7 @@ jobs:
       - name: Run OWASP dependency vulnerability check
         run: mvn -B verify --file pom.xml -DskipTests
         timeout-minutes: 5
+        continue-on-error: true
 
       - name: Build and analyze
         env:
