@@ -20,6 +20,7 @@ jobs:
       - name: Cache the Maven packages to speed up build
         timeout-minutes: 5
         uses: actions/cache@v1
+        continue-on-error: true
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
