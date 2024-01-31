@@ -237,3 +237,6 @@ buildNumber.properties
 # End of https://www.toptal.com/developers/gitignore/api/java,intellij,maven,linux,intellij+all
 
 github-actions-playground.iml
+
+.DS_Store
+actions-runner
