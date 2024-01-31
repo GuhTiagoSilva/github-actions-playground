@@ -2,16 +2,25 @@ name: Build and Test Java Application
 
 on:
   push:
-    branches: [ "main" ]
-    paths: [ '**.java', '.github/workflows/build.yaml', '.github/workflows/global-build.yaml','security.yaml', 'pom.xml' ]
+    branches:
+      - "main"
+    paths:
+      - '**.java',
+      - '.github/workflows/build.yaml',
+      - '.github/workflows/global-build.yaml',
+      - 'security.yaml',
+      - 'pom.xml'
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - "main"
   workflow_dispatch:
 
 jobs:
   build:
+    name: Build
     uses: GuhTiagoSilva/github-actions-playground/.github/workflows/global-build.yaml@main
   security:
+    name: Security
     uses: GuhTiagoSilva/github-actions-playground/.github/workflows/security.yaml@main
     needs: [ build ]
   push-image-to-docker-hub:
