@@ -16,6 +16,7 @@ jobs:
   security:
     name: Deoendency Check and Sonar Analysis
     runs-on: self-hosted
+    environment: dev
     steps:
       - uses: actions/checkout@v3
         timeout-minutes: 5
@@ -29,4 +30,5 @@ jobs:
         run: echo $SONAR_HOST_URL
 
       - name: Build and analyze
+        timeout-minutes: 5
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=github-actions-playground -Dsonar.projectName='github-actions-playground'
