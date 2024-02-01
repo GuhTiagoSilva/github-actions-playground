@@ -5,9 +5,11 @@ on:
   workflow_call:
 
 jobs:
+
   setup-java:
     name: Setup JDK
     uses: GuhTiagoSilva/github-actions-playground/.github/workflows/setup-java.yaml@main
+
   build:
     name: Build and Test
     runs-on: self-hosted
