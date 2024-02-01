@@ -20,7 +20,7 @@ jobs:
 
       - name: Build and Test with Maven
         timeout-minutes: 5
-        run: mvn -B package --file pom.xml
+        run: mvn test
 
       - name: Upload JaCoCo coverage report as a workflow artifact
         timeout-minutes: 2
