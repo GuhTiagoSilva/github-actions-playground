@@ -10,5 +10,6 @@ jobs:
     name: Build
     runs-on: ubuntu-22.04
     steps:
+      - uses: actions/checkout@v4
       - name: Build and Test
         run: mvn test
