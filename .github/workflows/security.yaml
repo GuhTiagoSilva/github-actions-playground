@@ -22,8 +22,11 @@ jobs:
         timeout-minutes: 5
         continue-on-error: true
 
+      - name: Print variables
+        run: ${{ secrets.SONAR_HOST_URL }}
+
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: echo ${{ secrets.SONAR_HOST_URL }} && mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=github-actions-playground -Dsonar.projectName='github-actions-playground'
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=github-actions-playground -Dsonar.projectName='github-actions-playground'
