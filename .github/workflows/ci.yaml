@@ -8,7 +8,8 @@ on:
       - '**.java'
       - '.github/workflows/ci.yaml'
       - '.github/workflows/build.yaml'
-      - 'security.yaml'
+      - '.github/workflows/security.yaml'
+      - '.github/workflows/mutation-testing.yaml'
       - 'pom.xml'
   workflow_dispatch:
     inputs:
