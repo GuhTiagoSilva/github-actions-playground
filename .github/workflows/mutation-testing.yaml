@@ -1,0 +1,16 @@
+name: Mutation Testing
+
+on:
+  workflow_call:
+
+jobs:
+  mutation-testing:
+    name: Mutation Testing
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run mutation testing
+        run: mvn test-compile org.pitest:pitest-maven:mutationCoverage

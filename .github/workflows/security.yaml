@@ -8,13 +8,9 @@ on:
       sonar-host-url:
         required: true
 
-env:
-  SONAR_TOKEN: ${{ secrets.sonar-token }}
-  SONAR_HOST_URL: ${{ secrets.sonar-host-url }}
-
 jobs:
   security:
-    name: Deoendency Check and Sonar Analysis
+    name: Deoendency Check Analysis
     runs-on: self-hosted
     environment: dev
     steps:
@@ -25,10 +21,3 @@ jobs:
         run: mvn -B verify --file pom.xml -DskipTests
         timeout-minutes: 5
         continue-on-error: true
-
-      - name: Print variables
-        run: echo $SONAR_HOST_URL
-
-      - name: Build and analyze
-        timeout-minutes: 5
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=github-actions-playground -Dsonar.projectName='github-actions-playground'

@@ -1,7 +1,5 @@
-## Defining workflow name
 name: Build and Test Java Application
 
-## The block 'on' is where we define the events that will trigger this workflow
 on:
   push:
     branches:
@@ -12,33 +10,29 @@ on:
       - '.github/workflows/build.yaml'
       - 'security.yaml'
       - 'pom.xml'
-  pull_request:
-    branches:
-      - "main"
-  ## The 'workflow_dispatch' attribute allow the client to run the pipeline manually and through 'inputs' attribute we are defining the values the client can insert in this pipeline
   workflow_dispatch:
     inputs:
       environment:
         description: '(Dev, Staging, PRD)'
         type: environment
         default: 'dev'
-
 jobs:
   build:
     name: Build
     uses: GuhTiagoSilva/github-actions-playground/.github/workflows/build.yaml@main
+  mutation-testing:
+    name: Mutation Testing
+    uses: GuhTiagoSilva/github-actions-playground/.github/workflows/mutation-testing.yaml@main
+    needs: [ build ]
   security:
     name: Security Validation
     uses: GuhTiagoSilva/github-actions-playground/.github/workflows/security.yaml@main
-    needs: [ build ]
-    secrets:
-      sonar-token: ${{ secrets.SONAR_TOKEN }}
-      sonar-host-url: ${{ secrets.SONAR_HOST_URL }}
+    needs: [ build, mutation-testing ]
   push-image-to-docker-hub:
     name: Push image to Docker Hub
     environment: ${{ inputs.environment }}
     runs-on: self-hosted
-    needs: [ build, security ]
+    needs: [ build, mutation-testing, security ]
     steps:
       - uses: actions/checkout@v3
         timeout-minutes: 5
@@ -57,6 +51,5 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: .
           push: true
           tags: guhtiagosilva/github-actions-playground:latest

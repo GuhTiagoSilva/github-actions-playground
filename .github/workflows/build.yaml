@@ -1,6 +1,5 @@
 name: Re-usable build java workflow
 
-## For a workflow to be reusable, the values for on must include workflow_call:
 on:
   workflow_call:
 
@@ -24,7 +23,7 @@ jobs:
         run: mvn -B package --file pom.xml
 
       - name: Upload JaCoCo coverage report as a workflow artifact
-        timeout-minutes: 5
+        timeout-minutes: 2
         uses: actions/upload-artifact@v3
         with:
           name: jacoco-report
