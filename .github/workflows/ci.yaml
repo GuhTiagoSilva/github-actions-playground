@@ -69,7 +69,7 @@ jobs:
 
   push-image-to-docker-hub:
     name: Push image to Docker Hub
-    environment: ${{ inputs.environment }}
+    environment: 'dev''
     runs-on: ubuntu-22.04
     needs: [ build, mutation-testing, security ] ## TO run the security job, both build, mutation-testing and security must be completed
     steps:
