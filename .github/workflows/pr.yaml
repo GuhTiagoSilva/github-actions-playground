@@ -8,3 +8,7 @@ jobs:
   build:
     name: Build and Test
     uses: GuhTiagoSilva/github-actions-playground/.github/workflows/build-and-test.yaml@solving-lab-1
+  security:
+    name: Security Analysis
+    needs: [ build ]
+    uses: GuhTiagoSilva/github-actions-playground/.github/workflows/build-and-test.yaml@solving-lab-1
