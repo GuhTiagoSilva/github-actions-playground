@@ -19,3 +19,9 @@ jobs:
           cache: maven
       - name: Run mutation testing
         run: mvn test-compile org.pitest:pitest-maven:mutationCoverage
+
+      - name: Upload Mutation Testing Coverage Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: mutation-testing-report
+          path: target/pit-reports/
