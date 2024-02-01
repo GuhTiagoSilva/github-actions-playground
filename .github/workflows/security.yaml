@@ -2,11 +2,6 @@ name: Security
 
 on:
   workflow_call:
-    secrets:
-      sonar-token:
-        required: true
-      sonar-host-url:
-        required: true
 
 jobs:
   security:
