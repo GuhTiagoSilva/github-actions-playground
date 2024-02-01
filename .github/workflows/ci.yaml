@@ -16,6 +16,11 @@ on:
         description: '(Dev, Staging, PRD)'
         type: environment
         default: 'dev'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     name: Build
