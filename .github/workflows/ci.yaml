@@ -9,7 +9,7 @@ on:
     paths:
       - '**.java'
       - '.github/workflows/ci.yaml'
-      - '.github/workflows/global-build.yaml'
+      - '.github/workflows/build.yaml'
       - 'security.yaml'
       - 'pom.xml'
   pull_request:
@@ -26,7 +26,7 @@ on:
 jobs:
   build:
     name: Build
-    uses: GuhTiagoSilva/github-actions-playground/.github/workflows/global-build.yaml@main
+    uses: GuhTiagoSilva/github-actions-playground/.github/workflows/build.yaml@main
   security:
     name: Security Validation
     uses: GuhTiagoSilva/github-actions-playground/.github/workflows/security.yaml@main
