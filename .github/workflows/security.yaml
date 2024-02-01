@@ -2,14 +2,14 @@ name: Security
 
 on:
   workflow_call:
-    inputs:
-      environment:
+    secrets:
+      sonar-token:
         required: true
-        type: string
+      sonar-host-url:
+        required: true
 jobs:
   security:
     name: Security
-    environment: ${{ github.event.inputs.environment }}
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
@@ -30,6 +30,6 @@ jobs:
 
       - name: Build and analyze
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_TOKEN: ${{ secrets.sonar-token }}
+          SONAR_HOST_URL: ${{ secrets.sonar-host-url }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=github-actions-playground -Dsonar.projectName='github-actions-playground'

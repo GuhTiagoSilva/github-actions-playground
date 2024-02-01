@@ -2,14 +2,9 @@ name: Re-usable build java workflow
 
 on:
   workflow_call:
-    inputs:
-      environment:
-        required: true
-        type: string
 
 jobs:
   build:
-    environment: ${{ github.event.inputs.environment }}
     name: Build and Test
     runs-on: self-hosted
     steps:

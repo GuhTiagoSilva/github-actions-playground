@@ -18,22 +18,21 @@ on:
       environment:
         description: '(Dev, Staging, PRD)'
         type: environment
-
+        default: 'dev''
 jobs:
   build:
     name: Build
     uses: GuhTiagoSilva/github-actions-playground/.github/workflows/global-build.yaml@main
-    with:
-      environment: ${{ github.event.inputs.environment }}
   security:
     name: Security
     uses: GuhTiagoSilva/github-actions-playground/.github/workflows/security.yaml@main
     needs: [ build ]
     with:
-      environment: ${{ github.event.inputs.environment }}
+      sonar-host-url: ${{ secrets.SONAR_HOST_URL }}
+      sonar-token: ${{ secrets.SONAR_TOKEN }}
   push-image-to-docker-hub:
     name: Push image to Docker Hub
-    environment: ${{ github.event.inputs.environment }}
+    environment: ${{ inputs.environment }}
     runs-on: self-hosted
     needs: [ build, security ]
     steps:
