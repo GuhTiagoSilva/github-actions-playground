@@ -16,8 +16,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         timeout-minutes: 5
-      - name: Set up JDK
-        uses: GuhTiagoSilva/github-actions-playground/.github/workflows/setup-java.yaml@main
 
       - name: Cache the Maven packages to speed up build
         timeout-minutes: 5
