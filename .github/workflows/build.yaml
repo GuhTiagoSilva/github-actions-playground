@@ -27,7 +27,7 @@ jobs:
     name: Security
     uses: GuhTiagoSilva/github-actions-playground/.github/workflows/security.yaml@main
     needs: [ build ]
-    with:
+    secrets:
       sonar-token: ${{ secrets.SONAR_TOKEN }}
       sonar-host-url: ${{ secrets.SONAR_HOST_URL }}
   push-image-to-docker-hub:
