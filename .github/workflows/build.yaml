@@ -18,7 +18,7 @@ on:
       environment:
         description: '(Dev, Staging, PRD)'
         type: environment
-        default: 'dev''
+        default: 'dev'
 jobs:
   build:
     name: Build
