@@ -7,6 +7,11 @@ on:
         required: true
       sonar-host-url:
         required: true
+
+env:
+  SONAR_TOKEN: ${{ secrets.sonar-token }}
+  SONAR_HOST_URL: ${{ secrets.sonar-host-url }}
+
 jobs:
   security:
     name: Security
@@ -26,10 +31,7 @@ jobs:
         continue-on-error: true
 
       - name: Print variables
-        run: ${{ secrets.SONAR_HOST_URL }}
+        run: $SONAR_HOST_URL
 
       - name: Build and analyze
-        env:
-          SONAR_TOKEN: ${{ secrets.sonar-token }}
-          SONAR_HOST_URL: ${{ secrets.sonar-host-url }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=github-actions-playground -Dsonar.projectName='github-actions-playground'
