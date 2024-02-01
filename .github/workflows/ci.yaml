@@ -34,7 +34,7 @@ jobs:
   security:
     name: Security Analysis
     needs: [ build, mutation-testing ] ## TO run the security job, both build and mutation-testing must be completed
-    uses: GuhTiagoSilva/github-actions-playground/.github/workflows/security.yaml
+    uses: GuhTiagoSilva/github-actions-playground/.github/workflows/security.yaml@solving-lab-1
 
   push-image-to-docker-hub:
     name: Push image to Docker Hub
