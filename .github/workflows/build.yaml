@@ -18,7 +18,6 @@ on:
       environment:
         description: '(Dev, Staging, PRD)'
         type: environment
-        default: 'dev'
 
 jobs:
   build:
@@ -32,7 +31,7 @@ jobs:
       environemnt: ${{ github.event.inputs.environment }}
   push-image-to-docker-hub:
     name: Push image to Docker Hub
-    environment: 'dev'
+    environment: ${{ github.event.inputs.environment }}
     runs-on: self-hosted
     needs: [ build, security ]
     steps:

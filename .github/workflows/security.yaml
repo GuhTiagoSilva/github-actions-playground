@@ -6,12 +6,10 @@ on:
       environment:
         required: true
         type: string
-        default: 'dev'
-
 jobs:
   security:
     name: Security
-    environment: ${{ inputs.environment }}
+    environment: ${{ github.event.inputs.environment }}
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
