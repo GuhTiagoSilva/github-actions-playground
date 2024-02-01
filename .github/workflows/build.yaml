@@ -23,12 +23,14 @@ jobs:
   build:
     name: Build
     uses: GuhTiagoSilva/github-actions-playground/.github/workflows/global-build.yaml@main
+    with:
+      environment: ${{ github.event.inputs.environment }}
   security:
     name: Security
     uses: GuhTiagoSilva/github-actions-playground/.github/workflows/security.yaml@main
     needs: [ build ]
     with:
-      environemnt: ${{ github.event.inputs.environment }}
+      environment: ${{ github.event.inputs.environment }}
   push-image-to-docker-hub:
     name: Push image to Docker Hub
     environment: ${{ github.event.inputs.environment }}
