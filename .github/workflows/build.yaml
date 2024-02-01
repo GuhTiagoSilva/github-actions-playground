@@ -4,19 +4,19 @@ on:
   workflow_call:
 
 jobs:
-
-  setup-java:
-    name: Setup JDK
-    uses: GuhTiagoSilva/github-actions-playground/.github/workflows/setup-java.yaml@main
-
   build:
     name: Build and Test
     runs-on: ubuntu-22.04
-    needs:
-      - setup-java
     steps:
       - uses: actions/checkout@v3
         timeout-minutes: 5
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          java-version: 21
+          distribution: 'temurin'
+          cache: maven
 
       - name: Build and Test with Maven
         timeout-minutes: 5
