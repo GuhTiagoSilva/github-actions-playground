@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: Build
-    uses: GuhTiagoSilva/github-actions-playground/.github/workflows/build-and-test.yaml@main
+    uses: GuhTiagoSilva/github-actions-playground/.github/workflows/build-and-test.yaml@solving-lab-1
   mutation-testing:
     name: Mutation Testing
     runs-on: ubuntu-latest

@@ -7,4 +7,4 @@ on:
 jobs:
   build:
     name: Build and Test
-    uses: GuhTiagoSilva/github-actions-playground/.github/workflows/build-and-test.yaml@main
+    uses: GuhTiagoSilva/github-actions-playground/.github/workflows/build-and-test.yaml@solving-lab-1
