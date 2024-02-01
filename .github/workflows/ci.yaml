@@ -6,12 +6,9 @@ on:
       - "solving-lab-1"
 
 jobs:
-  print-messages:
-    name: Print some messages
+  build:
+    name: Build
     runs-on: ubuntu-22.04
     steps:
-      - name: Print Hello World message
-        run: echo 'Hello World'
-
-      - name: Print Goodbye message
-        run: echo 'Goodbye!'
+      - name: Build and Test
+        run: mvn test
