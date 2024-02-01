@@ -11,7 +11,7 @@ jobs:
 
   build:
     name: Build and Test
-    runs-on: self-hosted
+    runs-on: ubuntu-22.04
     needs:
       - setup-java
     steps:

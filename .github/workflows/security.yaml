@@ -6,7 +6,7 @@ on:
 jobs:
   security:
     name: Deoendency Check Analysis
-    runs-on: self-hosted
+    runs-on: ubuntu-22.04
     environment: dev
     steps:
       - uses: actions/checkout@v3

@@ -11,7 +11,7 @@ on:
 jobs:
   setup-java:
     name: Setup Java ${{ inputs.java-version }}
-    runs-on: self-hosted
+    runs-on: ubuntu-22.04
     timeout-minutes: 2
 
     steps:
