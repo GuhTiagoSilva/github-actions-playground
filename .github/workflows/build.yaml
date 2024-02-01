@@ -1,5 +1,7 @@
+## Defining workflow name
 name: Build and Test Java Application
 
+## The block 'on' is where we define the events that will trigger this workflow
 on:
   push:
     branches:
@@ -13,12 +15,14 @@ on:
   pull_request:
     branches:
       - "main"
+  ## The 'workflow_dispatch' attribute allow the client to run the pipeline manually and through 'inputs' attribute we are defining the values the client can insert in this pipeline
   workflow_dispatch:
     inputs:
       environment:
         description: '(Dev, Staging, PRD)'
         type: environment
         default: 'dev'
+
 jobs:
   build:
     name: Build
