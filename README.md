@@ -1,3 +1,15 @@
+# Application Introduction
+
+- The application consists in simple Spring Boot API with two GET endpoints, where one of them returns an object with message “Hello World” and the other one the same object with the message “Goodbye!”
+- The API contains two unit tests that will be important for the pipeline process
+- The application is containerized using Docker
+
+# Technical Requirements
+
+- To run the application, you must have
+  - Java 21+
+  - Maven
+
 # CI/CD - Foundational
 
 ## Lab #1 - Continuos Integeration
