@@ -28,7 +28,7 @@ jobs:
     name: Build
     uses: GuhTiagoSilva/github-actions-playground/.github/workflows/global-build.yaml@main
   security:
-    name: Security
+    name: Security Validation
     uses: GuhTiagoSilva/github-actions-playground/.github/workflows/security.yaml@main
     needs: [ build ]
     secrets:

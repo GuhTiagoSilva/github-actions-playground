@@ -14,7 +14,7 @@ env:
 
 jobs:
   security:
-    name: Security
+    name: Deoendency Check and Sonar Analysis
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
