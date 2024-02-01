@@ -2,6 +2,10 @@ name: Re-usable build java workflow
 
 on:
   workflow_call:
+    inputs:
+      test:
+        type: string
+        default: 'Hello'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
