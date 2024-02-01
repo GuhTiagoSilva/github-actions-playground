@@ -1,6 +1,7 @@
 name: Continuous Integration Pipeline
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - "solving-lab-1"
