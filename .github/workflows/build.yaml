@@ -29,7 +29,7 @@ jobs:
     uses: GuhTiagoSilva/github-actions-playground/.github/workflows/security.yaml@main
     needs: [ build ]
     with:
-      environemnt: ${{ inputs.environment }}
+      environemnt: ${{ github.event.inputs.environment }}
   push-image-to-docker-hub:
     name: Push image to Docker Hub
     environment: 'dev'
