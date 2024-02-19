@@ -12,7 +12,7 @@
 
 # CI/CD - Foundational
 
-## Lab #1 - Continuos Integeration
+## Lab #1 - Continuos Integration
 
 - The main purpose of this lab is to build a Continuous Integration process for a Java application using Github Actions. This CI pipeline must run only when a push is done to the main branch. The pipeline should contain the following steps
     - **Build and Test**
