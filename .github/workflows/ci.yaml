@@ -1,0 +1,15 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  print-messages:
+    name: Print messages
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Print Hello Message
+        run: echo 'Hello World'
