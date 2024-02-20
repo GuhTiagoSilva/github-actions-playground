@@ -29,6 +29,8 @@ jobs:
   mutation-testing:
     name: Mutation Testing
     runs-on: ubuntu-22.04
+    needs:
+      - build
     steps:
       - uses: actions/checkout@v4
 
