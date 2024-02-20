@@ -6,10 +6,9 @@ on:
       - main
 
 jobs:
-  print-messages:
-    name: Print messages
+  build:
+    name: Build
     runs-on: ubuntu-22.04
-
     steps:
-      - name: Print Hello Message
-        run: echo 'Hello World'
+      - name: Build and Test
+        run: mvn test
