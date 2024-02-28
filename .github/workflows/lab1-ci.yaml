@@ -44,3 +44,20 @@ jobs:
       - name: Mutation Testing
         run: mvn test-compile org.pitest:pitest-maven:mutationCoverage
 
+  security-validation:
+    name: Security Validation
+    runs-on: ubuntu-22.04
+    needs: [ build-and-test, mutation-testing ]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          java-version: 21
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Run security validation
+        run: mvn -B verify --file pom.xml -DskipTests
+
+
