@@ -74,7 +74,7 @@ jobs:
   push-to-docker-hub:
     name: Build and Push to Docker Hub
     runs-on: ubuntu-22.04
-    environment: 'dev'
+    environment: 'development'
     needs:
       - build
       - mutation-testing
