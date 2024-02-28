@@ -1,0 +1,16 @@
+name: Continuous Integration - CI
+
+on:
+  push:
+    branches:
+      - main
+
+
+jobs:
+  build-and-test:
+    name: Build and Test
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Build and Test
+        run: mvn clean verify
