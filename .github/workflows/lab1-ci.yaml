@@ -9,25 +9,7 @@ on:
 jobs:
   build-and-test:
     name: Build and Test
-    runs-on: ubuntu-22.04
-
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up JDK 21
-        uses: actions/setup-java@v3
-        with:
-          java-version: 21
-          distribution: 'temurin'
-          cache: maven
-      - name: Build and Test
-        run: mvn test
-
-      - name: Upload JaCoCo coverage report as a workflow artifact
-        timeout-minutes: 2
-        uses: actions/upload-artifact@v3
-        with:
-          name: jacoco-report
-          path: target/site/jacoco/
+    uses: GuhTiagoSilva/github-actions-playground/.github/workflows/build-and-test-global.yaml@main
   mutation-testing:
     name: Mutation Testing
     runs-on: ubuntu-22.04
